@@ -31,27 +31,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof Carousel>;
 
-const sampleImages = [
+const heroImages = [
   {
     id: 1,
-    src: "https://picsum.photos/1600/900?random=1",
-    alt: "Sample Image 1",
+    src: "/images/bg1.jpg",
+    alt: "Hero Image 1",
   },
   {
     id: 2,
-    src: "https://picsum.photos/1600/900?random=2",
-    alt: "Sample Image 2",
-  },
-  {
-    id: 3,
-    src: "https://picsum.photos/1600/900?random=3",
-    alt: "Sample Image 3",
+    src: "/images/bg2.jpg",
+    alt: "Hero Image 2",
   },
 ];
 
 export const Default: Story = {
   args: {
-    images: sampleImages,
+    images: heroImages,
     autoPlay: true,
     interval: 4000,
     showArrows: true,
@@ -61,7 +56,7 @@ export const Default: Story = {
 
 export const WithoutControls: Story = {
   args: {
-    images: sampleImages,
+    images: heroImages,
     autoPlay: true,
     interval: 4000,
     showArrows: false,
@@ -71,7 +66,7 @@ export const WithoutControls: Story = {
 
 export const ManualNavigation: Story = {
   args: {
-    images: sampleImages,
+    images: heroImages,
     autoPlay: false,
     showArrows: true,
     height: "h-[500px]",
@@ -80,7 +75,7 @@ export const ManualNavigation: Story = {
 
 export const CustomHeight: Story = {
   args: {
-    images: sampleImages,
+    images: heroImages,
     autoPlay: true,
     interval: 4000,
     height: "h-[300px]",

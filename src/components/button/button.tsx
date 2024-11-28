@@ -14,11 +14,16 @@ const Button: React.FC<ButtonProps> = ({
     "font-medium transition-colors duration-200 focus:outline-none";
 
   const variantStyles = {
-    primary: "bg-blue-600 hover:bg-blue-700 text-white",
-    secondary: "bg-gray-600 hover:bg-gray-700 text-white",
-    danger: "bg-red-600 hover:bg-red-700 text-white",
-    success: "bg-green-600 hover:bg-green-700 text-white",
-    warning: "bg-yellow-600 hover:bg-yellow-700 text-white",
+    primary:
+      "transition ease-in-out delay-50 bg-[#E48F45] hover:bg-[#C46E32] text-white",
+    secondary:
+      "transition ease-in-out delay-50 bg-gray-600 hover:bg-gray-700 text-white",
+    danger:
+      "transition ease-in-out delay-50 bg-red-600 hover:bg-red-700 text-white",
+    success:
+      "transition ease-in-out delay-50 bg-green-600 hover:bg-green-700 text-white",
+    warning:
+      "transition ease-in-out delay-50 bg-yellow-600 hover:bg-yellow-700 text-white",
   };
 
   const sizeStyles = {
