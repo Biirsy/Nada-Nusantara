@@ -65,7 +65,7 @@ export default function Home() {
           <div className="flex items-center justify-between px-8 py-5">
             <div className="flex items-center">
               <Image
-                src="/images/logow.png"
+                src="/images/logonadanusantara-w.png"
                 alt="Logo"
                 width={242}
                 height={72}
@@ -116,7 +116,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <Card
               {...DefaultCard.args}
-              imageSrc="/images/bg1.jpg"
+              imageSrc="/images/placeholder.jpg"
               imageAlt="Teater Musik Djakarta"
               title="Teater Musik Djakarta"
               description="Nikmati keseruan teater musik di Jakarta"
@@ -124,7 +124,7 @@ export default function Home() {
             />
             <Card
               {...DefaultCard.args}
-              imageSrc="/images/bg1.jpg"
+              imageSrc="/images/placeholder.jpg"
               imageAlt="Traditional Dance"
               title="Traditional Dance in Yogyakarta"
               description="Nikmati keseruan tari tradisional di Yogyakarta"
@@ -132,7 +132,7 @@ export default function Home() {
             />
             <Card
               {...DefaultCard.args}
-              imageSrc="/images/bg1.jpg"
+              imageSrc="/images/placeholder.jpg"
               imageAlt="Wayang"
               title="Nonton Wayang Bareng di Surabaya"
               description="Nikmatilah pertunjukan wayang di Surabaya"
@@ -162,30 +162,30 @@ export default function Home() {
             <ArticleCard
               {...DefaultArticleCard.args}
               id="1"
-              title="Menjelajahi Teknologi Masa Depan"
-              writer="Jane Doe"
+              title="Pesona Budaya: Jelajah Event Tradisional dari Sabang sampai Merauke"
+              writer="Fufufafa"
               readTime={10}
-              imageUrl="/images/bg2.jpg"
+              imageUrl="/images/placeholder.jpg"
               imageAlt="Teknologi Masa Depan"
               buttonText="Baca Artikel"
             />
             <ArticleCard
               {...DefaultArticleCard.args}
               id="2"
-              title="Panduan Memulai Bisnis Online"
-              writer="John Smith"
+              title="Melestarikan Tradisi: Panduan Lengkap Mengenai Event Tradisional"
+              writer="Fufufafa"
               readTime={12}
-              imageUrl="/images/bg2.jpg"
+              imageUrl="/images/placeholder.jpg"
               imageAlt="Bisnis Online"
               buttonText="Baca Artikel"
             />
             <ArticleCard
               {...DefaultArticleCard.args}
               id="3"
-              title="Tips Memasak Tradisional Indonesia"
-              writer="Chef Agus"
+              title="Mengenal Lebih Dekat: Berbagai Macam Event Tradisional di Indonesia"
+              writer="Fufufafa"
               readTime={8}
-              imageUrl="/images/bg2.jpg"
+              imageUrl="/images/placeholder.jpg"
               imageAlt="Memasak Tradisional"
               buttonText="Baca Artikel"
             />
@@ -206,7 +206,7 @@ export default function Home() {
             <div className="mb-6 md:mb-0">
               <a href="https://flowbite.com/" className="flex items-center">
                 <Image
-                  src="/images/logow.png"
+                  src="/images/logonadanusantara-w.png"
                   alt="Logo"
                   width={242}
                   height={72}
