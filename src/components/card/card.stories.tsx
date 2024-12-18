@@ -4,6 +4,7 @@ import Card from "./card";
 const meta: Meta<typeof Card> = {
   title: "Components/Card",
   component: Card,
+  tags: ["autodocs"],
   argTypes: {
     buttonVariant: {
       control: { type: "select" },
@@ -26,7 +27,7 @@ type Story = StoryObj<typeof Card>;
 
 export const DefaultCard: Story = {
   args: {
-    imageSrc: "/images/default.jpg",
+    imageSrc: "/images/bg1.jpg",
     imageAlt: "Default Event",
     title: "Default Event",
     description: "A default card example",

@@ -4,6 +4,7 @@ import ArticleCard from "./articleCard";
 const meta: Meta<typeof ArticleCard> = {
   title: "Components/ArticleCard",
   component: ArticleCard,
+  tags: ["autodocs"],
   argTypes: {
     buttonVariant: {
       control: { type: "select" },

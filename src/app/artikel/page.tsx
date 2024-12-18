@@ -2,20 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Carousel from "@/components/carousel/carousel";
 import Button from "@/components/button/button";
-import Card from "@/components/card/card";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import ArticleCard from "@/components/articleCard/articleCard";
 import { DefaultArticleCard } from "@/components/articleCard/articleCard.stories";
-import { WithoutControls } from "@/components/carousel/carousel.stories";
-import { DefaultCard } from "@/components/card/card.stories";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Input from "@/components/form/form";
 import Image from "next/image";
 import Link from "next/link";
-import "./globals.css";
+import "../globals.css";
 
-export default function Home() {
+export default function Artikel() {
   const [navbarVisible, setNavbarVisible] = useState(false);
 
   const handleScroll = () => {
@@ -41,76 +38,73 @@ export default function Home() {
     });
   }, []);
 
-  const heroImages = [
-    {
-      id: 1,
-      src: "/images/bg1.jpg",
-      alt: "Hero Image 1",
-    },
-    {
-      id: 2,
-      src: "/images/bg2.jpg",
-      alt: "Hero Image 2",
-    },
-  ];
-
   const router = useRouter();
 
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative h-screen">
-        <div className="absolute inset-0 z-0">
-          <Carousel
-            {...WithoutControls.args}
-            images={heroImages}
-            autoPlay={true}
-            interval={6000}
-            showArrows={false}
-            height="h-screen"
-          />
-        </div>
+      <div className="relative h-24">
         <div
           className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
             navbarVisible ? "bg-black bg-opacity-75" : "bg-transparent"
           }`}
         >
           <div className="flex items-center justify-between px-8 py-5">
+            {/* Logo */}
             <div className="flex items-center">
               <Image
-                src="/images/logonadanusantara-w.png"
+                src={
+                  navbarVisible
+                    ? "/images/logonadanusantara-w.png" // Logo warna putih ketika navbar hitam
+                    : "/images/logonadanusantara.png" // Logo default
+                }
                 alt="Logo"
                 width={242}
                 height={72}
               />
             </div>
 
+            {/* Navbar Items */}
             <div className="flex items-center space-x-7">
               <Link
                 href="/"
-                className="transition ease-in-out delay-50 text-white hover:text-gray-200 font-medium"
+                className={`transition ease-in-out delay-50 font-medium ${
+                  navbarVisible
+                    ? "text-white hover:text-gray-300"
+                    : "text-gray-900 hover:text-black"
+                }`}
               >
                 Beranda
               </Link>
               <Link
                 href="/event"
-                className="transition ease-in-out delay-50 text-white hover:text-gray-200 font-medium"
+                className={`transition ease-in-out delay-50 font-medium ${
+                  navbarVisible
+                    ? "text-white hover:text-gray-300"
+                    : "text-gray-900 hover:text-black"
+                }`}
               >
                 Event
               </Link>
               <Link
                 href="/artikel"
-                className="transition ease-in-out delay-50 text-white hover:text-gray-200 font-medium"
+                className={`transition ease-in-out delay-50 font-medium ${
+                  navbarVisible
+                    ? "text-white hover:text-gray-300"
+                    : "text-gray-900 hover:text-black"
+                }`}
               >
                 Artikel
               </Link>
             </div>
 
+            {/* Button */}
             <div>
               <Button
                 variant="primary"
                 size="md"
                 radius="md"
+                className={`${navbarVisible ? "text-white border-white" : ""}`}
                 onClick={() => {
                   router.push("/login");
                 }}
@@ -122,125 +116,128 @@ export default function Home() {
         </div>
       </div>
       {/* Event Section */}
-      <div className="relative z-20 py-16 bg-white -mt-16">
+      <div className="relative z-20 py-16 bg-white mt-2">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2
-              className="text-3xl font-bold text-gray-800 mb-4"
-              data-aos="fade-up"
-            >
-              Event Terbaru
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
+              Mau Cari Artikel Apa Nih?
             </h2>
-            <p className="text-gray-600 max-w-xl mx-auto" data-aos="fade-up">
-              Temukan berbagai event menarik yang akan berlangsung
+            <p className="text-gray-600 max-w-lg mx-auto">
+              Temukan berbagai artikel terkait seni di Nada Nusantara
             </p>
           </div>
+          <div className="mt-6 w-full flex justify-center items-center mb-12">
+            <div className="w-[48rem]">
+              <Input
+                type="text"
+                placeholder="Cari Artikel..."
+                size="medium"
+                borderRadius="large"
+                borderColor="border-gray-300"
+                variant="search"
+              />
+            </div>
+          </div>
+          <div className="mb-12">
+            <div className="text-left mb-6">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                Artikel Terbaru
+              </h2>
+              <div className="flex justify-between items-center">
+                <p className="text-gray-600 text-regular">
+                  Berbagai artikel terbaru
+                </p>
+                <Link href="#" className="text-gray-600 text-sm">
+                  Lihat Artikel Lainnya
+                </Link>
+              </div>
+            </div>
 
-          <div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            data-aos="fade-up"
-          >
-            <Card
-              {...DefaultCard.args}
-              imageSrc="/images/ev1.jpg"
-              imageAlt="ev1"
-              title="Festival Musik Tradisi Indonesia 2024"
-              description="Jul 13 - 14 2024"
-              buttonText="Lihat Detail"
-            />
-            <Card
-              {...DefaultCard.args}
-              imageSrc="/images/ev2.jpg"
-              imageAlt="ev2"
-              title="Festival Teater Tradisional Tahun 2024"
-              description="Jun 23 - 29 2024"
-              buttonText="Lihat Detail"
-            />
-            <Card
-              {...DefaultCard.args}
-              imageSrc="/images/ev3.jpeg"
-              imageAlt="ev3"
-              title="Festival Harmoni Budaya Nusantara (FHBN) 2024"
-              description="Sep 5 - 7 2024"
-              buttonText="Lihat Detail"
-            />
-          </div>
-          <div className="text-center mt-12" data-aos="fade-up">
-            <Button
-              variant="primary"
-              size="md"
-              radius="md"
-              onClick={() => {
-                router.push("/event");
-              }}
-            >
-              Lihat Semua Event
-            </Button>
-          </div>
-        </div>
-      </div>
-      {/* Artikel Section */}
-      <div className="relative z-20 py-16 bg-white -mt-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2
-              className="text-3xl font-bold text-gray-800 mb-4"
+            <div
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
               data-aos="fade-up"
             >
-              Artikel Terbaru
-            </h2>
-            <p className="text-gray-600 max-w-xl mx-auto" data-aos="fade-up">
-              Baca berbagai artikel menarik yang telah kami sajikan
-            </p>
+              <ArticleCard
+                {...DefaultArticleCard.args}
+                id="1"
+                title="Cine-Concert Samsara Bakal Diboyong ke Perth pada Februari 2025"
+                writer="Tia Agnes Astuti"
+                readTime={5}
+                imageUrl="/images/art1.jpeg"
+                imageAlt="art"
+                buttonText="Baca Artikel"
+              />
+              <ArticleCard
+                {...DefaultArticleCard.args}
+                id="2"
+                title="Momen Taufiq Ismail-Putu Wijaya Tampil dalam Pentas Karya Sastra & Literasi di TIM"
+                writer="Cicin Yulianti"
+                readTime={2}
+                imageUrl="/images/art2.jpeg"
+                imageAlt="art"
+                buttonText="Baca Artikel"
+              />
+              <ArticleCard
+                {...DefaultArticleCard.args}
+                id="3"
+                title="Reog Ponorogo hingga Kebaya Diusulkan Jadi Warisan Budaya Takbenda ke UNESCO"
+                writer="Tia Agnes Astuti"
+                readTime={5}
+                imageUrl="/images/art3.jpeg"
+                imageAlt="art"
+                buttonText="Baca Artikel"
+              />
+            </div>
           </div>
-
-          <div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            data-aos="fade-up"
-          >
-            <ArticleCard
-              {...DefaultArticleCard.args}
-              id="1"
-              title="Cine-Concert Samsara Bakal Diboyong ke Perth pada Februari 2025"
-              writer="Tia Agnes Astuti"
-              readTime={5}
-              imageUrl="/images/art1.jpeg"
-              imageAlt="art"
-              buttonText="Baca Artikel"
-            />
-            <ArticleCard
-              {...DefaultArticleCard.args}
-              id="2"
-              title="Momen Taufiq Ismail-Putu Wijaya Tampil dalam Pentas Karya Sastra & Literasi di TIM"
-              writer="Cicin Yulianti"
-              readTime={2}
-              imageUrl="/images/art2.jpeg"
-              imageAlt="art"
-              buttonText="Baca Artikel"
-            />
-            <ArticleCard
-              {...DefaultArticleCard.args}
-              id="3"
-              title="Reog Ponorogo hingga Kebaya Diusulkan Jadi Warisan Budaya Takbenda ke UNESCO"
-              writer="Tia Agnes Astuti"
-              readTime={5}
-              imageUrl="/images/art3.jpeg"
-              imageAlt="art"
-              buttonText="Baca Artikel"
-            />
-          </div>
-
-          <div className="text-center mt-12" data-aos="fade-up">
-            <Button
-              variant="primary"
-              size="md"
-              radius="md"
-              onClick={() => {
-                router.push("/artikel");
-              }}
+          <div className="mb-12">
+            <div className="text-left mb-6">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                Rekomendasi Untuk Kamu
+              </h2>
+              <div className="flex justify-between items-center">
+                <p className="text-gray-600 text-regular">
+                  Kami ada beberapa rekomendasi artikel buat kamu nih!
+                </p>
+                <Link href="#" className="text-gray-600 text-sm">
+                  Lihat Artikel Lainnya
+                </Link>
+              </div>
+            </div>
+            <div
+              className="grid grid-cols-1 md:grid-cols-3 gap-8"
+              data-aos="fade-up"
             >
-              Lihat Semua Artikel
-            </Button>
+              <ArticleCard
+                {...DefaultArticleCard.args}
+                id="1"
+                title="Cine-Concert Samsara Bakal Diboyong ke Perth pada Februari 2025"
+                writer="Tia Agnes Astuti"
+                readTime={5}
+                imageUrl="/images/art1.jpeg"
+                imageAlt="art"
+                buttonText="Baca Artikel"
+              />
+              <ArticleCard
+                {...DefaultArticleCard.args}
+                id="2"
+                title="Momen Taufiq Ismail-Putu Wijaya Tampil dalam Pentas Karya Sastra & Literasi di TIM"
+                writer="Cicin Yulianti"
+                readTime={2}
+                imageUrl="/images/art2.jpeg"
+                imageAlt="art"
+                buttonText="Baca Artikel"
+              />
+              <ArticleCard
+                {...DefaultArticleCard.args}
+                id="3"
+                title="Reog Ponorogo hingga Kebaya Diusulkan Jadi Warisan Budaya Takbenda ke UNESCO"
+                writer="Tia Agnes Astuti"
+                readTime={5}
+                imageUrl="/images/art3.jpeg"
+                imageAlt="art"
+                buttonText="Baca Artikel"
+              />
+            </div>
           </div>
         </div>
       </div>
